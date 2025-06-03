@@ -237,7 +237,7 @@
             html += `<td rowspan='2'>${r.ruleId || ""}</td>`;
             html += `<td>${precision}</td>`;
             html += `<td>${problemSeverity}</td>`;
-            html += `<td>${securitySeverityName}</td>`;
+            html += `<td>${securitySeverity}</td>`;
             html += `<td>${rule.fullDescription?.text || rule.shortDescription?.text || ""}</td>`;
             html += `<td>${r.message?.text?.replace(/\n/g, "<br/>") || ""}</td>`;
             html += "</tr>";
