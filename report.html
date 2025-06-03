@@ -1,0 +1,1233 @@
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>SARIF Scan Report</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+            h1, h2, h3 { color: #333; }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #ccc;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            tr:nth-child(even) { background-color: #f2f2f2; }
+            .severity-Error { color: red; font-weight: bold; }
+            .severity-Warning { color: orange; font-weight: bold; }
+            .severity-Note { color: blue; font-weight: bold; }
+            .severity-Info { color: gray; font-weight: normal; }
+            .severity-Unknown { color: black; }
+        </style>
+    </head>
+    <body>
+        <h1>SARIF Scan Report</h1>
+
+        <h2>Summary</h2>
+        <p><strong>Total tools scanned:</strong> 1</p>
+        <p><strong>Total issues found:</strong> 101</p>
+        <p><strong>Total distinct rules:</strong> 7</p>
+
+        <h3>Issues per tool</h3>
+        <ul>
+    <li><strong>CodeQL</strong>: 101 issues</li></ul><h3>Issues by Severity</h3><ul><li><span class='severity-Unknown'>Unknown</span>: 101</li></ul>
+        <h2>Detailed Issues</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tool</th>
+                    <th>Rule ID</th>
+                    <th>Rule Description</th>
+                    <th>Precision</th>
+                    <th>Problem Severity</th>
+                    <th>Security Severity</th>
+                    <th>Message</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.Common/Class/Utilities.cs:631:81</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.
+[User-provided value](3) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.Report/DashboardViecGiao_AssignorDeptAllTree/DashboardViecGiao_AssignorDeptAllTree.ascx.cs:765:47</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.Report/DashboardViecGiao_AssignorDeptAllTree/DashboardViecGiao_AssignorDeptAllTree.ascx.cs:793:43</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.UtilityCloud/API/ApiFNUser.cs:94:67</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.UtilityCloud/API/ApiUser.cs:161:67</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.
+[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.Workflow.FormSP/NewWorkflowForm/NewWorkflowForm.cs:390:94</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.
+[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.Workflow.FormSP/WorkflowFormDefination/WorkflowFormDefination.cs:365:98</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/View/SetParameterWorkflowAll/SetParameterWorkflowAll.cs:388:101</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Condition/ConditionsList/ConditionsList.ascx.cs:160:47</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowDiagram_List/WorkflowDiagram_List.ascx.cs:275:42</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.
+[User-provided value](2) flows to here and is written to HTML or JavaScript.
+[User-provided value](3) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowDiagram_List/WorkflowDiagram_List.ascx.cs:393:50</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowStep_FormNew/WorkflowStep_FormNew.ascx.cs:137:36</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowStep_FormNew/WorkflowStep_FormNew.ascx.cs:143:40</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowsRelated/WorkflowsRelated.ascx.cs:120:38</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/DinhNghiaQuiTrinh_FormNew/DinhNghiaQuiTrinh_FormNew.ascx.cs:301:36</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/xss</td>
+                <td>Writing user input directly to a web page allows for a cross-site scripting vulnerability.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>[User-provided value](1) flows to here and is written to HTML or JavaScript.</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/WorkflowDiagram/WorkflowDiagram.ascx.cs:271:50</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sql-injection</td>
+                <td>Building a SQL query from user-controlled sources is vulnerable to insertion of malicious SQL code by the user.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>8.8</td>
+                <td>This query depends on [this ASP.NET query string](1).
+This query depends on [this ASP.NET query string](2).
+This query depends on [this ASP.NET query string](1).
+This query depends on [this ASP.NET query string](2).</td>
+                <td>VuThao.BPMOP.Common/Model/DBBase.cs:392:39</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sql-injection</td>
+                <td>Building a SQL query from user-controlled sources is vulnerable to insertion of malicious SQL code by the user.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>8.8</td>
+                <td>This query depends on [this ASP.NET query string](1).</td>
+                <td>VuThao.BPMOP.Common/Model/DBBase.cs:1012:35</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sql-injection</td>
+                <td>Building a SQL query from user-controlled sources is vulnerable to insertion of malicious SQL code by the user.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>8.8</td>
+                <td>This query depends on [this ASP.NET query string](1).
+This query depends on [this ASP.NET query string](1).</td>
+                <td>VuThao.BPMOP.Common/Model/DBBase.cs:578:39</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sql-injection</td>
+                <td>Building a SQL query from user-controlled sources is vulnerable to insertion of malicious SQL code by the user.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>8.8</td>
+                <td>This query depends on [this ASP.NET user input](1).</td>
+                <td>VuThao.BPMOP.Common/Model/DBBase.cs:1827:35</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sql-injection</td>
+                <td>Building a SQL query from user-controlled sources is vulnerable to insertion of malicious SQL code by the user.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>8.8</td>
+                <td>This query depends on [this ASP.NET query string](1).</td>
+                <td>VuThao.BPMOP.Social/Model/DBPost.cs:78:57</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sql-injection</td>
+                <td>Building a SQL query from user-controlled sources is vulnerable to insertion of malicious SQL code by the user.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>8.8</td>
+                <td>This query depends on [this ASP.NET user input](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/CheckStoreSQL/CheckStoreSQL.cs:537:65</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/uncontrolled-format-string</td>
+                <td>Passing untrusted format strings from remote data sources can throw exceptions and cause a denial of service.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>9.3</td>
+                <td>This format string depends on [thisASP.NET query string](1).</td>
+                <td>VuThao.BPMOP.Core/Custom/SPCustom.cs:308:40</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/uncontrolled-format-string</td>
+                <td>Passing untrusted format strings from remote data sources can throw exceptions and cause a denial of service.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>9.3</td>
+                <td>This format string depends on [thisASP.NET query string](1).</td>
+                <td>VuThao.BPMOP.Core/Custom/SPCustom.cs:314:51</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/uncontrolled-format-string</td>
+                <td>Passing untrusted format strings from remote data sources can throw exceptions and cause a denial of service.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>9.3</td>
+                <td>This format string depends on [thisASP.NET query string](1).</td>
+                <td>VuThao.BPMOP.Core/Custom/SPCustom.cs:323:52</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/uncontrolled-format-string</td>
+                <td>Passing untrusted format strings from remote data sources can throw exceptions and cause a denial of service.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>9.3</td>
+                <td>This format string depends on [thisASP.NET query string](1).</td>
+                <td>VuThao.BPMOP.Core/Custom/SPCustom.cs:329:34</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sensitive-data-transmission</td>
+                <td>Transmitting sensitive information to the user is a potential security risk.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>4.3</td>
+                <td>This data transmitted to the user depends on [sensitive information](1).</td>
+                <td>VuThao.BPMOP.Common/Auth/AuthSharePointADFS.cs:301:57</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/sensitive-data-transmission</td>
+                <td>Transmitting sensitive information to the user is a potential security risk.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>4.3</td>
+                <td>This data transmitted to the user depends on [sensitive information](1).</td>
+                <td>VuThao.BPMOP.Common/Auth/AuthSharePointIndentity.cs:319:57</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).
+This information exposed to the user depends on [exception information](2).
+This information exposed to the user depends on [exception information](3).</td>
+                <td>VuThao.ManageFile/Layouts/VuThaoUp/up-file.aspx.cs:582:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.BPMOP.eOffice/ChangePassV2/ChangePassV2.cs:56:40</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.BPMOP.eOffice/ChangePassV2/ChangePassV2.cs:93:36</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.BPMOP.eOffice/ChangePassV2/ChangePassV2.cs:182:36</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.BPMOP.eOffice/ChangePassV2/ChangePassV2.cs:199:36</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.BPMOP.eOffice/ChangePassV2/ChangePassV2.cs:264:36</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.ManageFile/Layouts/VuThaoUp/column-img-upload.aspx.cs:84:32</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.ManageFile/Layouts/VuThaoUp/up-file.aspx.cs:686:32</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).
+This information exposed to the user depends on [exception information](2).
+This information exposed to the user depends on [exception information](3).</td>
+                <td>VuThao.ManageFile/Layouts/VuThaoUp/up-file.aspx.cs:757:32</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/information-exposure-through-exception</td>
+                <td>Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>5.4</td>
+                <td>This information exposed to the user depends on [exception information](1).</td>
+                <td>VuThao.ManageFile/Layouts/VuThaoUp/up-file.aspx.cs:825:32</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/DelegateNewForm/DelegateNewForm.ascx.cs:479:56</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.Core/Project.cs:4554:44</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/SecretsFormGoogle/SecretsFormGoogle.cs:364:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/SecretsFormGoogle/SecretsFormGoogle.cs:366:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/ValidateAuth/ValidateAuth.cs:44:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/ValidateAuth/ValidateAuth.cs:51:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/DesignReportForm/DesignReportForm.cs:624:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/DesignReportForm/DesignReportForm.cs:626:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/DesignViewForm/DesignViewForm.cs:1253:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/DesignViewForm/DesignViewForm.cs:1255:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).
+Untrusted URL redirection due to [user-provided value](2).
+Untrusted URL redirection due to [user-provided value](3).
+Untrusted URL redirection due to [user-provided value](4).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/WorkflowFormDefination/WorkflowFormDefination.cs:222:44</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).
+Untrusted URL redirection due to [user-provided value](2).
+Untrusted URL redirection due to [user-provided value](3).
+Untrusted URL redirection due to [user-provided value](4).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/WorkflowFormDefination/WorkflowFormDefination.cs:351:77</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).
+Untrusted URL redirection due to [user-provided value](2).
+Untrusted URL redirection due to [user-provided value](3).
+Untrusted URL redirection due to [user-provided value](4).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/WorkflowFormDefination/WorkflowFormDefination.cs:375:73</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).
+Untrusted URL redirection due to [user-provided value](2).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Defination/WorkflowFormDefination/WorkflowFormDefination.cs:432:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/ControlDynamicDetail/ControlDynamicDetail.ascx.cs:426:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowFormField_Config/WorkflowFormField_Config.cs:480:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowRelated_NewAndEdit/WorkflowRelated_NewAndEdit.cs:544:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowRelated_NewAndEdit/WorkflowRelated_NewAndEdit.cs:546:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowStep_FormEdit/WorkflowStep_FormEdit.ascx.cs:440:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowStep_FormNew/WorkflowStep_FormNew.ascx.cs:571:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/ConfigStep/WorkflowsRelated/WorkflowsRelated.ascx.cs:234:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/DelegateNewForm/DelegateNewForm.ascx.cs:509:44</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/DinhNghiaQuiTrinh_FormEdit/DinhNghiaQuiTrinh_FormEdit.ascx.cs:540:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/DinhNghiaQuiTrinh_FormNew/DinhNghiaQuiTrinh_FormNew.ascx.cs:928:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Document/DocumentAttacheTypeForm/DocumentAttacheTypeForm.cs:696:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Document/DocumentAttacheTypeForm/DocumentAttacheTypeForm.cs:698:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Document/DocumentCategoryForm/DocumentCategoryForm.cs:288:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Document/DocumentCategoryForm/DocumentCategoryForm.cs:290:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Document/WorkflowCategoryInsertOrUpdate/WorkflowCategoryInsertOrUpdate.cs:307:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Document/WorkflowCategoryInsertOrUpdate/WorkflowCategoryInsertOrUpdate.cs:309:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/MailTemplateForm/MailTemplateForm.cs:353:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/MailTemplateForm/MailTemplateForm.cs:355:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Upload_Attachments/Upload_Attachments.cs:776:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/UserBuget/UserBudget_Edit/UserBudget_Edit.cs:446:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/UserBuget/UserBudget_New/UserBudget_New.ascx.cs:500:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/WorkFlowRule_FormEdit/WorkFlowRule_FormEdit.ascx.cs:150:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/WorkFlowRule_FormNew/WorkFlowRule_FormNew.ascx.cs:227:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Workflow_DocumentTemplateFormNew/Workflow_DocumentTemplateFormNew.cs:385:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).
+Untrusted URL redirection due to [user-provided value](2).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Workflow_FormEdit/Workflow_FormEdit.ascx.cs:536:44</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Workflow_FormNew/Workflow_FormNew.ascx.cs:358:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.WorkflowFormDefination/Workflow/Workflow_PublishPage/Workflow_PublishPage.cs:475:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).
+Untrusted URL redirection due to [user-provided value](2).</td>
+                <td>VuThao.BPMOP.eOffice/DynamicEditForm/DynamicEditForm.cs:272:52</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.eOffice/InsertOrUpdateHoliday/InsertOrUpdateHoliday.cs:306:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.eOffice/InsertOrUpdateHoliday/InsertOrUpdateHoliday.cs:308:48</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/web/unvalidated-url-redirection</td>
+                <td>URL redirection based on unvalidated user input may cause redirection to malicious web sites.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>6.1</td>
+                <td>Untrusted URL redirection due to [user-provided value](1).</td>
+                <td>VuThao.BPMOP.eOffice/SettingNotify/SettingNotify.cs:224:49</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:83:37</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:246:37</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:286:45</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:83:37</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:246:37</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:246:62</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:286:45</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:83:37</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.Common/Api/ApiAccount.cs:286:45</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:64:21</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](4) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](4) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:75:26</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:64:21</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:64:116</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](4) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](4) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:75:100</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](4) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](4) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:75:102</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](1), but a [user-provided value](3) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:64:21</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.HttpModuleSecurity/Class/Security.cs:64:59</td>
+            </tr>
+        
+            <tr>
+                <td>CodeQL</td>
+                <td>cs/user-controlled-bypass</td>
+                <td>User-controlled bypassing of sensitive methods may allow attackers to avoid passing through authentication systems.</td>
+                <td>N/A</td>
+                <td>error</td>
+                <td>7.5</td>
+                <td>This condition guards a sensitive [action](1), but a [user-provided value](2) controls it.
+This condition guards a sensitive [action](3), but a [user-provided value](2) controls it.</td>
+                <td>VuThao.BPMOP.eOffice/MySettings/MySettings.cs:64:25</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>SARIF Viewer</title>
+    <style>
+      *{box-sizing: border-box;margin:0;padding:0;}
+      body {font-family: Arial, sans-serif;background: #f9faff;}
+      .container{padding: 20px}
+      .tabsContainer h2{margin-bottom: 15px}
+      table {border-collapse: collapse;width: 100%;}
+      th,td {border: 1px solid #e5e5e5;padding:8px 10px;text-align: left;word-break:break-word;}
+      th {background-color: #005bb7;color: white;white-space: nowrap;font-size:15px}
+      td {font-size: 14px;}
+      tr.even {background-color:#ebf5ff}
+      th[colspan],td[rowspan]{text-align: center}
+      .lookup {padding: 5px 3px;border-radius: 50%;cursor: pointer;margin-left:5px;}
+      .lookup:hover{background: #e5e5e5;}
+      .tab-report{display:inline-flex;background:#fff;border:1px solid #fff;border-radius:25px;padding:5px;box-shadow:0px 0px 6px #e5e5e5;gap:5px;margin-bottom: 15px}
+      .tab-report button{padding:8px 25px; cursor:pointer;border:0;border-radius: 20px;}
+      .tab-report button:hover{background-color: #e5e5e5;}
+      .tab-report button>span{color: red}
+      .tab-btn.active {background-color:#005bb7;color: white;font-weight: bold;}
+      .locationPopup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);min-height:400px;min-width:80%;max-height:90%;max-width:90%;
+        background:white;border-radius:15px;box-shadow:0 0 10px rgba(0,0,0,0.2); z-index:9999;
+        word-break: break-word;overflow: auto;
+      }
+      body:has(.locationPopup.show){overflow: hidden;}
+      .bgPopup{position:fixed;top:0;left:0;width:100%;height:100%;background: #00000080;z-index:99;}
+      .locationPopup h3{margin-top: 0;position: sticky;top: 0;left:0;background: #fff;z-index: 1;padding:20px 0;width: 100%}
+      .locationPopup .Buttons{position: sticky;bottom: 0;right: 0;background: #fff;z-index: 1;padding: 20px;text-align:right;width: 100%;}
+      .locationPopup .Buttons .btn-close{background: #fff;border: 1px solid #005bb7;border-radius: 5px;padding: 10px 25px;color:#005bb7;cursor:pointer;}
+      .locationPopup .Buttons .btn-close:hover{background: #005bb7;color: #fff;border-color: #005bb7}
+      .popupContent{padding:0 20px 20px;}
+      .item{margin-bottom:8px;font-size: 13px}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="tabsContainer" class="tabsContainer"></div>
+      <div id="tableContainer" class="tableContainer"></div>
+    </div>
+    <!-- <input type="file" id="jsonFileInput" accept=".json" style="cursor: pointer;" /> -->
+    <!-- <div id="summaryContainer"></div> -->
+    
+
+    <script>
+      // Function to render summary information
+      /* function renderSummary(sarif) {
+        const runs = sarif?.runs || [];
+
+        const toolNames = new Set();
+        let totalIssues = 0;
+        const toolIssueCount = {};
+        const ruleIds = new Set();
+        const severityCount = {};
+
+        runs.forEach(run => {
+          const tool = run.tool?.driver?.name || "Unknown";
+          toolNames.add(tool);
+
+          const results = run.results || [];
+          totalIssues += results.length;
+          toolIssueCount[tool] = (toolIssueCount[tool] || 0) + results.length;
+
+          const rules = run.tool?.driver?.rules || [];
+          rules.forEach(rule => ruleIds.add(rule.id));
+
+          results.forEach(r => {
+            const rule = rules.find(rule => rule.id === r.ruleId);
+            const severity = rule?.problemSeverity || "Unknown";
+            severityCount[severity] = (severityCount[severity] || 0) + 1;
+          });
+        });
+
+        let html = "<h2>Report summary</h2>";
+        html += "<table>";
+        html += `<tr><th>Summary</th><th>Value</th></tr>`;
+        html += `<tr><td>Total tools scanned</td><td>${toolNames.size}</td></tr>`;
+        html += `<tr><td>Total issues found</td><td>${totalIssues}</td></tr>`;
+        html += `<tr><td>Total distinct rules</td><td>${ruleIds.size}</td></tr>`;
+
+        // Gộp Issues per Tool
+        for (const [tool, count] of Object.entries(toolIssueCount)) {
+          html += `<tr><td>${tool} - issues</td><td>${count}</td></tr>`;
+        }
+
+        // Gộp Issues by Severity
+        for (const [severity, count] of Object.entries(severityCount)) {
+          html += `<tr><td>Severity: ${severity}</td><td>${count}</td></tr>`;
+        }
+
+        html += "</table>";
+        //document.getElementById("summaryContainer").innerHTML = html;
+      }*/
+
+      // Function to render content information
+      fetch("Data.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Không thể tải file JSON");
+        return response.json();
+      })
+      .then(sarif => {
+        const results = sarif?.runs?.[0]?.results || [];
+        const rules = sarif?.runs?.[0]?.tool?.driver?.rules || [];
+        const rulesMap = Object.fromEntries(rules.map(r => [r.id, r]));
+
+        renderTable(results, rulesMap);
+      })
+      .catch(err => {
+        document.getElementById("tableContainer").innerHTML = "<p style='color:red;'>❌ Lỗi đọc file JSON.</p>";
+        console.error(err);
+      });
+
+      // 👇 Function to filter results by severity
+      function filterBySecuritySeverity(severityName) {
+        const allRows = document.querySelectorAll("#tableContainer table tbody tr");
+        allRows.forEach(row => row.style.display = "none");
+
+        const visibleRows = document.querySelectorAll(`.severityName-${severityName}`);
+        visibleRows.forEach(row => row.style.display = "");
+      }
+
+      // 👇 Hàm showAll
+      function showAllRows() {
+        const allRows = document.querySelectorAll("#tableContainer table tbody tr");
+        allRows.forEach(row => row.style.display = "");
+      }
+
+      // 👇 Hàm xủ lý gắn class active cho nút tab
+      function handleTabClick(button, severityName) {
+        // Bỏ active khỏi tất cả
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+        // Gắn active vào nút được click
+        button.classList.add('active');
+
+        // Gọi hàm lọc
+        if (severityName === 'All') {
+          showAllRows();
+        } else {
+          filterBySecuritySeverity(severityName);
+        }        
+      }
+
+      // 👇 renderTable
+      function renderTable(results, rulesMap) {
+          if (!Array.isArray(results) || results.length === 0) {
+            document.getElementById("tableContainer").innerHTML = "<p>Không có kết quả để hiển thị.</p>";
+            return;
+          }
+
+          // 👇 B1. Chuẩn bị đếm theo securitySeverityName
+          const severityLevels = ["Critical", "High", "Medium", "Low"];
+          const severityCounts = Object.fromEntries(severityLevels.map(level => [level, 0]));
+
+          results.forEach(r => {
+            const rule = rulesMap[r.ruleId] || {};
+            const severityName = r.securitySeverityName || rule.securitySeverityName || "Unknown";
+            if (severityCounts.hasOwnProperty(severityName)) {
+              severityCounts[severityName]++;
+            }
+          });
+
+          
+          // 👇 B2. Tạo Tabs
+          let tabsHtml = "<h2>Report Bugs</h2>";
+          tabsHtml += `<div class="tab-report">`;
+          tabsHtml += `<button class="tab-btn" data-level="All" onclick="handleTabClick(this, 'All')">All</button>`;
+          severityLevels.forEach(level => {
+            tabsHtml += `<button class="tab-btn" data-level="${level}" onclick="handleTabClick(this, '${level}')">
+              ${level} <span>(${severityCounts[level]})</span>
+            </button>`;
+          });
+          tabsHtml += `</div>`;
+          document.getElementById("tabsContainer").innerHTML = tabsHtml;
+
+          // 👇 B3. Render bảng          
+          let html = "<table><thead>";
+          html += "<tr>";
+          html += "<th rowspan='2'>STT</th>";
+          html += "<th rowspan='2'>Rule ID</th>";
+          html += "<th>Precision</th>";
+          html += "<th>Problem Severity</th>";
+          html += "<th>Security Severity</th>";
+          html += "<th>Rule Description</th>";
+          html += "<th>Message</th>";
+          html += "</tr>";
+
+          html += "<tr>";
+          html += "<th colspan='3'>Location</th>";
+          html += "<th>Error Attack</th>";
+          html += "<th>Fix suggestion</th>";
+          html += "</tr>";
+
+          html += "</thead><tbody>";
+
+          results.forEach((r, idx) => {
+            const rule = rulesMap[r.ruleId] || {};
+            const location = r.locations?.[0]?.physicalLocation;
+            const region = location?.region || {};
+            const file = location?.artifactLocation?.uri || "";
+            const line = region.startLine || "";
+            const column = region.startColumn || "";
+
+            const precision = r.precision || rule.precision || "";
+            const problemSeverity = r.problemSeverity || rule.problemSeverity || "";
+            const securitySeverity = r.securitySeverity || rule.securitySeverity || "";
+            const securitySeverityName = r.securitySeverityName || rule.securitySeverityName || "Unknown";
+
+            const allUris = [];
+
+            r.codeFlows?.forEach(cf => {
+              cf.threadFlows?.forEach(tf => {
+                tf.locations?.forEach(loc => {
+                  const uri = loc.location?.physicalLocation?.artifactLocation?.uri; 
+                  const regionFlow = loc.location?.physicalLocation?.region || {};   
+                  const lineFlow = regionFlow.startLine || "";
+                  const columnFlow = regionFlow.startColumn || "";              
+                  if (uri) {
+                    allUris.push(`${uri} :${lineFlow}:${columnFlow}`);                  
+                  }
+                });
+              });
+            });
+            const locationCodeFlows = allUris.map(uri => `<div class="item">${uri}</div>`).join("");
+            
+            const attacker = r.attackerActions || "";
+            const fix = (typeof r.fixes === "string") ? r.fixes : "";
+
+            const cssClass = `severityName-${securitySeverityName}`;
+
+            html += `<tr class="${idx % 2 === 0 ? "even" : "odd"} ${cssClass}">`;
+            html += `<td rowspan="2">${idx + 1}</td>`;
+            html += `<td rowspan='2'>${r.ruleId || ""}</td>`;
+            html += `<td>${precision}</td>`;
+            html += `<td>${problemSeverity}</td>`;
+            html += `<td>${securitySeverityName}</td>`;
+            html += `<td>${rule.fullDescription?.text || rule.shortDescription?.text || ""}</td>`;
+            html += `<td>${r.message?.text?.replace(/\n/g, "<br/>") || ""}</td>`;
+            html += "</tr>";
+
+            html += `<tr class="${idx % 2 === 0 ? "even" : "odd"} ${cssClass}">`;
+            html += `<td colspan='3'>
+                      ${file}:${line}:${column}
+                      <span class="lookup" onclick='showLocationPopup(${JSON.stringify(locationCodeFlows)})'>🔍</span>
+                    </td>`;
+            html += `<td>${attacker}</td>`;
+            html += `<td>${fix}</td>`;
+            html += "</tr>";
+          });
+
+          html += "</tbody></table>";
+          document.getElementById("tableContainer").innerHTML = html;
+
+          // Tự động set active cho All ban đầu
+          setTimeout(() => {
+            const defaultTab = document.querySelector('.tab-btn[data-level="All"]');
+            if (defaultTab) handleTabClick(defaultTab, 'All');
+          }, 0);
+        }
+
+      // Function to show popup with file location
+      function showLocationPopup(htmlContent) {
+          const bgPopup = document.getElementById('bgPopup');
+          const popup = document.getElementById('locationPopup');
+          const content = document.getElementById('popupContent');
+          content.innerHTML = `<h3>CodeFlows Location:</h3>` + htmlContent;
+          popup.style.display = 'block';
+          popup.classList.add('show');
+          bgPopup.style.display = 'block';                  
+      }
+      function closePopup() {
+        document.getElementById('locationPopup').style.display = 'none';
+        document.getElementById('bgPopup').style.display = 'none';
+        document.getElementById('locationPopup').classList.remove('show');
+      }
+
+    </script>
+
+    <!-- Popup function to show file location -->
+    <div id="bgPopup" class="bgPopup"style="display:none;"></div>
+    <div id="locationPopup" class="locationPopup" style="display:none;">
+      <div id="popupContent" class="popupContent"></div>
+      <div class="Buttons">
+        <button class="btn-close" onclick="closePopup()">Đóng</button>
+      </div>
+    </div>
+  </body>
+
+</html>
