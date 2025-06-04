@@ -65,7 +65,14 @@
       }*/
 
       // Function to render content information
-      fetch("Data.json")
+      const now = new Date();
+      const timestamp = now.getFullYear().toString() +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        String(now.getDate()).padStart(2, "0") +
+        String(now.getHours()).padStart(2, "0") +
+        String(now.getMinutes()).padStart(2, "0");
+
+      fetch(`Data.json?t=${timestamp}`)
       .then(response => {
         if (!response.ok) throw new Error("Không thể tải file JSON");
         return response.json();
