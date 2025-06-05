@@ -224,7 +224,9 @@
                     <span class="lookup" onclick='showLocationPopup(${JSON.stringify(locationCodeFlows)})'>🔍</span>
                   </td>`;
           html += `<td>${attacker}</td>`;
-          html += `<td>${fix}</td>`;
+          html += `<td>Cách fix bug
+                    <span class="lookup" onclick='showLocationPopup(${JSON.stringify(fix)})'>🔍</span>
+                  </td>`;
           html += "</tr>";
         });
 
@@ -258,9 +260,11 @@
     <!-- Popup function to show file location -->
     <div id="bgPopup" class="bgPopup"style="display:none;"></div>
     <div id="locationPopup" class="locationPopup" style="display:none;">
-      <div id="popupContent" class="popupContent"></div>
-      <div class="Buttons">
-        <button class="btn-close" onclick="closePopup()">Đóng</button>
+      <div class="" style="display: flex;flex-direction: column;height:calc(100vh - 77px);">
+        <div id="popupContent" class="popupContent"></div>
+        <div class="Buttons">
+          <button class="btn-close" onclick="closePopup()">Đóng</button>
+        </div>
       </div>
     </div>
   </body>
