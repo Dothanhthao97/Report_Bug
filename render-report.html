@@ -221,11 +221,11 @@
           html += `<tr class="${idx % 2 === 0 ? "even" : "odd"} ${cssClass}">`;
           html += `<td colspan='3'>
                     ${file}:${line}:${column}
-                    <span class="lookup" onclick='showLocationPopup(${JSON.stringify(locationCodeFlows)})'>🔍</span>
+                    <span class="lookup" onclick='showLocationPopup("<h3>CodeFlows Location:</h3>" + ${JSON.stringify(locationCodeFlows)})'>🔍</span>
                   </td>`;
           html += `<td>${attacker}</td>`;
           html += `<td>Cách fix bug
-                    <span class="lookup" onclick='showLocationPopup(${JSON.stringify(fix)})'>🔍</span>
+                    <span class="lookup" onclick='showLocationPopup("<h3>Fix suggestion:</h3>" + ${JSON.stringify(fix)})'>🔍</span>
                   </td>`;
           html += "</tr>";
         });
@@ -245,7 +245,8 @@
         const bgPopup = document.getElementById('bgPopup');
         const popup = document.getElementById('locationPopup');
         const content = document.getElementById('popupContent');
-        content.innerHTML = `<h3>CodeFlows Location:</h3>` + htmlContent;
+        content.innerHTML = htmlContent;
+        // content.innerHTML = `<h3>CodeFlows Location:</h3>` + htmlContent;
         popup.style.display = 'block';
         popup.classList.add('show');
         bgPopup.style.display = 'block';                  
