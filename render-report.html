@@ -71,8 +71,8 @@
         String(now.getDate()).padStart(2, "0") +
         String(now.getHours()).padStart(2, "0") +
         String(now.getMinutes()).padStart(2, "0");
-
-      fetch(`DataSuggestion.json?t=${timestamp}`)
+      const _RESULT = [];
+      fetch(`Result.json?t=${timestamp}`)
       .then(response => {
         if (!response.ok) throw new Error("Không thể tải file JSON");
         return response.json();
@@ -81,6 +81,7 @@
         const results = sarif?.runs?.[0]?.results || [];
         const rules = sarif?.runs?.[0]?.tool?.driver?.rules || [];
         const rulesMap = Object.fromEntries(rules.map(r => [r.id, r]));
+        _RESULT.push(...results);
 
         renderTable(results, rulesMap);
       })
@@ -173,6 +174,7 @@
         html += "</thead><tbody>";
 
         results.forEach((r, idx) => {
+          const rowID = r.rowID || 0;
           const rule = rulesMap[r.ruleId] || {};
           const location = r.locations?.[0]?.physicalLocation;
           const region = location?.region || {};
@@ -184,7 +186,7 @@
           const problemSeverity = r.problemSeverity || rule.problemSeverity || "";
           const securitySeverity = r.securitySeverity || rule.securitySeverity || "";
           const securitySeverityName = r.securitySeverityName || rule.securitySeverityName || "Unknown";
-
+          
           const allUris = [];
 
           r.codeFlows?.forEach(cf => {
@@ -214,19 +216,20 @@
           html += `<td>${precision}</td>`;
           html += `<td>${problemSeverity}</td>`;
           html += `<td>${securitySeverity}</td>`;
-          html += `<td>${rule.fullDescription?.text || rule.shortDescription?.text || ""}</td>`;
-          html += `<td>${r.message?.text?.replace(/\n/g, "<br/>") || ""}</td>`;
+          html += `<td>${r.fullDescription || rule.fullDescription || ""}</td>`;
+          html += `<td>${r.message || rule.message || ""}</td>`;
           html += "</tr>";
 
           html += `<tr class="${idx % 2 === 0 ? "even" : "odd"} ${cssClass}">`;
-          html += `<td colspan='3'>
-                    ${file}:${line}:${column}
-                    <span class="lookup" onclick='showLocationPopup("<h3>CodeFlows Location:</h3>" + ${JSON.stringify(locationCodeFlows)})'>🔍</span>
-                  </td>`;
+            html += `<td colspan='3'>
+            ${file}:${line}:${column}
+            <span class="lookup" onclick='handleLocationPopup("CodeFlows Location", ${JSON.stringify(locationCodeFlows)})'>🔍</span>
+          </td>`;
           html += `<td>${attacker}</td>`;
-          html += `<td>Cách fix bug
-                    <span class="lookup" onclick='showLocationPopup("<h3>Fix suggestion:</h3>" + ${JSON.stringify(fix)})'>🔍</span>
-                  </td>`;
+          html += `<td>
+            Cách fix bug
+            <span class="lookup" onclick='handleFixPopup("Fix suggestion", ${rowID})'>🔍</span>
+          </td>`;
           html += "</tr>";
         });
 
@@ -240,17 +243,32 @@
         }, 0);
       }
 
-      // Function to show popup with file location
-      function showLocationPopup(htmlContent) {
-        const bgPopup = document.getElementById('bgPopup');
-        const popup = document.getElementById('locationPopup');
-        const content = document.getElementById('popupContent');
-        content.innerHTML = htmlContent;
-        // content.innerHTML = `<h3>CodeFlows Location:</h3>` + htmlContent;
-        popup.style.display = 'block';
-        popup.classList.add('show');
-        bgPopup.style.display = 'block';                  
+      function handleLocationPopup(title, jsonData) {
+        // Gọi hàm showLocationPopup để hiển thị dữ liệu
+        showLocationPopup(title, jsonData);
       }
+
+      function handleFixPopup(title, ID) {
+          // Gọi hàm showLocationPopup để hiển thị dữ liệu
+          var fix = _RESULT.find(item => item.rowID === ID)?.fixes || "";
+          showLocationPopup(title, fix);
+      }
+
+      // Function to show popup with file location
+      function showLocationPopup(title, jsonData) {
+          const bgPopup = document.getElementById('bgPopup');
+          const popup = document.getElementById('locationPopup');
+          const content = document.getElementById('popupContent');
+
+          // Xử lý dữ liệu JSON và tạo HTML
+          let htmlContent = `<h3>${title}</h3><div>${Array.isArray(jsonData) ? jsonData.join('<br/>') : jsonData}</div>`;
+          content.innerHTML = htmlContent;
+
+          popup.style.display = 'block';
+          popup.classList.add('show');
+          bgPopup.style.display = 'block';
+        }
+      
       function closePopup() {
         document.getElementById('locationPopup').style.display = 'none';
         document.getElementById('bgPopup').style.display = 'none';
