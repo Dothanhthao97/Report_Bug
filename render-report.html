@@ -6,6 +6,12 @@
     <title>Report Bugs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Load marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-csharp.min.js"></script>
   </head>
 
   <body>
@@ -15,55 +21,6 @@
     </div>    
 
     <script>
-      // Function to render summary information
-      /* function renderSummary(sarif) {
-        const runs = sarif?.runs || [];
-
-        const toolNames = new Set();
-        let totalIssues = 0;
-        const toolIssueCount = {};
-        const ruleIds = new Set();
-        const severityCount = {};
-
-        runs.forEach(run => {
-          const tool = run.tool?.driver?.name || "Unknown";
-          toolNames.add(tool);
-
-          const results = run.results || [];
-          totalIssues += results.length;
-          toolIssueCount[tool] = (toolIssueCount[tool] || 0) + results.length;
-
-          const rules = run.tool?.driver?.rules || [];
-          rules.forEach(rule => ruleIds.add(rule.id));
-
-          results.forEach(r => {
-            const rule = rules.find(rule => rule.id === r.ruleId);
-            const severity = rule?.problemSeverity || "Unknown";
-            severityCount[severity] = (severityCount[severity] || 0) + 1;
-          });
-        });
-
-        let html = "<h2>Report summary</h2>";
-        html += "<table>";
-        html += `<tr><th>Summary</th><th>Value</th></tr>`;
-        html += `<tr><td>Total tools scanned</td><td>${toolNames.size}</td></tr>`;
-        html += `<tr><td>Total issues found</td><td>${totalIssues}</td></tr>`;
-        html += `<tr><td>Total distinct rules</td><td>${ruleIds.size}</td></tr>`;
-
-        // Gộp Issues per Tool
-        for (const [tool, count] of Object.entries(toolIssueCount)) {
-          html += `<tr><td>${tool} - issues</td><td>${count}</td></tr>`;
-        }
-
-        // Gộp Issues by Severity
-        for (const [severity, count] of Object.entries(severityCount)) {
-          html += `<tr><td>Severity: ${severity}</td><td>${count}</td></tr>`;
-        }
-
-        html += "</table>";
-        //document.getElementById("summaryContainer").innerHTML = html;
-      }*/
-
       // Function to render content information
       const now = new Date();
       const timestamp = now.getFullYear().toString() +
@@ -255,14 +212,17 @@
       }
 
       // Function to show popup with file location
+      const converter = new showdown.Converter();
       function showLocationPopup(title, jsonData) {
           const bgPopup = document.getElementById('bgPopup');
           const popup = document.getElementById('locationPopup');
           const content = document.getElementById('popupContent');
 
           // Xử lý dữ liệu JSON và tạo HTML
-          let htmlContent = `<h3>${title}</h3><div>${Array.isArray(jsonData) ? jsonData.join('<br/>') : jsonData}</div>`;
-          content.innerHTML = htmlContent;
+          const htmlContent  = converter.makeHtml(`${Array.isArray(jsonData) ? jsonData.join('<br/>') : jsonData}`);
+          let fullContent  = `<h3>${title}</h3><div>${htmlContent}</div>`;
+          content.innerHTML = fullContent;
+          Prism.highlightAll();
 
           popup.style.display = 'block';
           popup.classList.add('show');
